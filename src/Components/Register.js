@@ -43,25 +43,14 @@ const Register = () => {
     const password = formData.password;
     if (Object.keys(validate()).length === 0) {
       try {
-        const response = await axios.post(
-          "http://localhost:5000/api/register",
-          {
-            email,
-            password,
-          }
-        );
-
-        // Store the token in localStorage or sessionStorage
-        const token = response.data.token;
-        localStorage.setItem("token", token);
-
-        // Redirect or perform other actions
-        console.log("Login successful, token saved!");
-      } catch (err) {
-
-      }
+        await axios.post("http://localhost:5000/api/register", {
+          email,
+          password,
+        });
+        console.log("Registration Successful!");
+      } catch (err) {}
       setSuccessMessage("Registration successful!");
-      setFormData({ email: "", password: "",passowrd2:"" });
+      setFormData({ email: "", password: "", password2: "" });
       setErrors({});
     } else {
       setErrors("");
