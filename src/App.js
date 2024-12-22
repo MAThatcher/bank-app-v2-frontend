@@ -3,7 +3,8 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Register from "./Components/Register";
 import ForgotPassword from "./Components/Forgot-Password";
-import Dashboard from "./Components/Dashboard.js";
+import Dashboard from "./Components/Dashboard";
+
 function App() {
   return (
     <BrowserRouter>

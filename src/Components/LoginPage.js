@@ -2,33 +2,33 @@
 import React, { useState } from "react";
 //import '../Css/LoginPage.css';
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-
+import { useNavigate } from "react-router-dom"; 
+import APIConfig from "../Misc/ApiBaseUrl";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate(); 
+  const apiBaseUrl = APIConfig.getBaseUrl();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(`${apiBaseUrl}/api/login`);
     try {
-      const response = await axios.post("http://localhost:5000/api/login", {
+      const response = await axios.post(`${apiBaseUrl}/api/login`, {
         email,
         password,
       });
 
-      // Clear previous messages
       setError("");
       setSuccess("Login successful!");
 
-      // Store the token in localStorage or sessionStorage
-      const token = response.data.token;
-      localStorage.setItem("token", token);
+      const accessToken = response.data.accessToken;
+      const refreshToken = response.data.refreshToken;
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
 
-      // Redirect or perform other actions
       console.log("Login successful, token saved!");
 
       navigate("/Dashboard");
