@@ -14,9 +14,9 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(`${apiBaseUrl}/api/login`);
+    console.log(`${apiBaseUrl}/api/users/login`);
     try {
-      const response = await axios.post(`${apiBaseUrl}/api/login`, {
+      const response = await axios.post(`${apiBaseUrl}/api/users/login`, {
         email,
         password,
       });

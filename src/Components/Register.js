@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 //import '../Css/Register.css'; // Import the CSS file
 import axios from "axios";
+import APIConfig from "../Misc/ApiBaseUrl";
 
 const Register = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const apiBaseUrl = APIConfig.getBaseUrl();
 
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
@@ -43,7 +45,7 @@ const Register = () => {
     const password = formData.password;
     if (Object.keys(validate()).length === 0) {
       try {
-        await axios.post("http://localhost:5000/api/register", {
+        await axios.post(`${apiBaseUrl}/api/users/register`, {
           email,
           password,
         });
