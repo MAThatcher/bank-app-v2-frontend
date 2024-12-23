@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import App from "../src/App";
+jest.mock('axios');
 
 
 jest.mock("../src/Components/LoginPage", () => () => <div>Login Page</div>);
