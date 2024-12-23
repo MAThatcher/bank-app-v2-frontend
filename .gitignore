@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 ApiBaseUrl.js
 Misc/
+.vscode
+settings.json

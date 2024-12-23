@@ -2,14 +2,14 @@
 import React, { useState } from "react";
 //import '../Css/LoginPage.css';
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import APIConfig from "../Misc/ApiBaseUrl";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const apiBaseUrl = APIConfig.getBaseUrl();
 
   const handleSubmit = async (e) => {
@@ -45,22 +45,26 @@ const LoginPage = () => {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <label>
+            Email:
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </label>
         </div>
         <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <label>
+            Password:
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
         </div>
         <button type="submit">Login</button>
       </form>
@@ -68,7 +72,9 @@ const LoginPage = () => {
       {success && <p style={{ color: "green" }}>{success}</p>}
 
       <div className="forgot-password">
-        <p><a href="/ForgotPassword">Forgot your password?</a></p>
+        <p>
+          <a href="/ForgotPassword">Forgot your password?</a>
+        </p>
         {/* TODO Setup forgot password button */}
       </div>
       <div className="Create Account">
