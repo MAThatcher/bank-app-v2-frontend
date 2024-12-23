@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import '../Css/Register.css'; // Import the CSS file
 import axios from "axios";
 import APIConfig from "../Misc/ApiBaseUrl";
 

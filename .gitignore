@@ -25,3 +25,4 @@ ApiBaseUrl.js
 Misc/
 .vscode
 settings.json
+.babelrc
