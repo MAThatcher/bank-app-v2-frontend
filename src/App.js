@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Register from "./Components/Register";
 import ForgotPassword from "./Components/ForgotPassword";
 import Dashboard from "./Components/Dashboard";
+import Account from "./Components/Account";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="Register" element={<Register />} />
           <Route path="ForgotPassword" element={<ForgotPassword />} />
           <Route path="Dashboard" element={<Dashboard />} />
+          <Route path="/Account/:id" element={<Account />} />
         </Route>
       </Routes>
     </BrowserRouter>
