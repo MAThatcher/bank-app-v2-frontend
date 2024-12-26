@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import APIConfig from "../Misc/ApiBaseUrl";
+
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +15,6 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(`${apiBaseUrl}/api/users/login`);
     try {
       const response = await axios.post(`${apiBaseUrl}/api/users/login`, {
         email,
