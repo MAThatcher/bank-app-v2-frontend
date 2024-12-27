@@ -37,8 +37,11 @@ const AccountDetails = () => {
           throw new Error("Failed to fetch account details");
         }
         setAccount(response.data[0]);
-      } catch (err) {
-        setError(err.message);
+      } catch (error) {
+        console.error("Error fetching account details:", error);
+        if (error.response && (error.response.status === 403 || error.response.status === 401)) {
+          navigate("/");
+        }
       }
     };
 

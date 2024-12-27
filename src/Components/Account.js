@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Css/Account.css";
+import PropTypes from 'prop-types';
+
 
 const Account = ({ account }) => {
+  Account.propTypes = {
+    account: PropTypes.string.isRequired
+  };
   return (
     <div className="account">
-      {/* Wrap the account name with a Link for navigation */}
       <h3>
         <Link to={`/account/${account.id}`} className="account-name-link">
           {account.name}
@@ -15,6 +19,7 @@ const Account = ({ account }) => {
       <p>Balance: ${account.balance}</p>
     </div>
   );
+
 };
 
 export default Account;

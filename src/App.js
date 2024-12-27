@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Register from "./Components/Register";
 import ForgotPassword from "./Components/ForgotPassword";
 import Dashboard from "./Components/Dashboard";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header"
+//import Footer from "./Components/Footer";
+//import Header from "./Components/Header"
 import AccountDetails from "./Components/AccountDetails";
 
 function App() {
