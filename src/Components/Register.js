@@ -37,19 +37,21 @@ const Register = () => {
     return newErrors;
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     const email = formData.email;
     const password = formData.password;
     if (Object.keys(validate()).length === 0) {
       try {
-        await axios.post(`${apiBaseUrl}/api/users/register`, {
+        const response = await axios.post(`${apiBaseUrl}/api/users/register`, {
           email,
           password,
         });
-        console.log("Registration Successful!");
-      } catch (err) {}
+        alert(response.data.message);
+      } catch (err) {
+        console.error("Error during signup:", err);
+        alert("Signup failed. Please try again.");
+      }
       setSuccessMessage("Registration successful!");
       setFormData({ email: "", password: "", password2: "" });
       setErrors({});

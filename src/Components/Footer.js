@@ -28,6 +28,8 @@ const Footer = () => {
             <li><a href="/privacy-policy">Privacy Policy</a></li>
             <li><a href="/terms-of-service">Terms of Service</a></li>
             <li><a href="/help">Help Center</a></li>
+            <li><a href="https://github.com/MAThatcher/bank-app-v2-frontend" target="_blank">Frontend Repo</a></li>
+            <li><a href="https://github.com/MAThatcher/bank-app-v2-backend" target="_blank">Backend Repo</a></li>
           </ul>
         </div>
       </div>
