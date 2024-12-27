@@ -28,7 +28,7 @@ const Dashboard = () => {
         setLoading(false);
       } catch (error) {
         console.error("Error fetching accounts:", error);
-        if (error.response && error.response.status === 401) {
+        if (error.response && (error.response.status === 403 || error.response.status === 401)) {
           navigate("/");
         }
       }
