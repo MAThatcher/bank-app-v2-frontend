@@ -1,6 +1,5 @@
-// LoginPage.js
 import React, { useState } from "react";
-import '../Css/LoginPage.css';
+import "../Css/LoginPage.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import APIConfig from "../Misc/ApiBaseUrl";
@@ -75,9 +74,8 @@ const LoginPage = () => {
         <p>
           <a href="/ForgotPassword">Forgot your password?</a>
         </p>
-        {/* TODO Setup forgot password button */}
       </div>
-      <div className="Create Account">
+      <div className="forgot-password">
         <p>
           <a href="/Register">Create Account</a>
         </p>

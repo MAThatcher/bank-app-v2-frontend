@@ -14,7 +14,7 @@ const Header = () => {
     localStorage.removeItem("refreshToken");
     window.location.href = "/";
   };
-
+  //if the user is not logged in. Buttons such as settings, create account, etc should not be rendered TODO
   return (
     <header className="header">
       <div className="header-container">

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
-import "../Css/AccountDetails.css"; // Add relevant CSS
+import "../Css/AccountDetails.css";
 import ApiConfig from "../Misc/ApiBaseUrl";
 
 const AccountDetails = () => {

@@ -5,7 +5,7 @@ import Register from "./Components/Register";
 import ForgotPassword from "./Components/ForgotPassword";
 import Dashboard from "./Components/Dashboard";
 import Footer from "./Components/Footer";
-import Header from "./Components/Header"
+import Header from "./Components/Header";
 import AccountDetails from "./Components/AccountDetails";
 import EmailVerification from "./Components/EmailVerification";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
@@ -29,7 +29,6 @@ function App() {
           <Route path="terms-of-service" element={<TermsOfService />} />
           <Route path="help" element={<HelpCenter />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
-
         </Route>
       </Routes>
       <Footer />

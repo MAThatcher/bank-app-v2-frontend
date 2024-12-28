@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Css/Account.css";
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 
 const Account = ({ account }) => {
   Account.propTypes = {
-    account: PropTypes.string.isRequired
+    account: PropTypes.string.isRequired,
   };
   return (
     <div className="account">
@@ -19,7 +18,6 @@ const Account = ({ account }) => {
       <p>Balance: ${account.balance}</p>
     </div>
   );
-
 };
 
 export default Account;
