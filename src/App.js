@@ -5,12 +5,14 @@ import Register from "./Components/Register";
 import ForgotPassword from "./Components/ForgotPassword";
 import Dashboard from "./Components/Dashboard";
 import Footer from "./Components/Footer";
-import Header from "./Components/Header"
+import Header from "./Components/Header";
 import AccountDetails from "./Components/AccountDetails";
 import EmailVerification from "./Components/EmailVerification";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import TermsOfService from "./Components/TermsOfService";
 import HelpCenter from "./Components/HelpCenter";
+import ResetPassword from "./Components/ResetPassword";
+
 function App() {
   return (
     <BrowserRouter>
@@ -26,7 +28,7 @@ function App() {
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-of-service" element={<TermsOfService />} />
           <Route path="help" element={<HelpCenter />} />
-
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
         </Route>
       </Routes>
       <Footer />
