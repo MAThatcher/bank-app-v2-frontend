@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Css/LoginPage.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import APIConfig from "../Misc/ApiBaseUrl";
+ 
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -11,6 +12,13 @@ const LoginPage = () => {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
   const apiBaseUrl = APIConfig.getBaseUrl();
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
