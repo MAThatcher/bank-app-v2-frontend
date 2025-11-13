@@ -8,7 +8,7 @@ on:
       - 'releases/**'
   pull_request:
       types: [opened, synchronize, reopened]
-
+#comment for commit
 name: Main Workflow
 jobs:
   sonarqube:
