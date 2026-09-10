@@ -1,0 +1,333 @@
+/* Header.css - Imperial Navigation Header */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Pirata+One&family=MedievalSharp&family=UnifrakturMaguntia&family=Cinzel:wght@400;600;700&display=swap');
+
+.imperial-header-nav {
+    background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+    border-bottom: 3px solid #8B0000;
+    box-shadow: 0 4px 20px rgba(139, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Cinzel', serif;
+}
+
+.imperial-header-nav::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FFD700, transparent);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Brand/Logo */
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.header-brand:hover .brand-aquila {
+    transform: scale(1.1);
+    text-shadow: 0 0 30px #FFD700, 0 0 50px #8B0000;
+}
+
+.brand-aquila {
+    font-size: 36px;
+    color: #FFD700;
+    text-shadow: 0 0 20px #8B0000, 0 0 40px #8B0000;
+    transition: all 0.3s ease;
+    animation: subtle-pulse 4s ease-in-out infinite;
+}
+
+.brand-aquila-img {
+    height: 48px;
+    width: auto;
+    filter: drop-shadow(0 0 10px #8B0000) drop-shadow(0 0 20px rgba(139, 0, 0, 0.8));
+    transition: all 0.3s ease;
+    animation: subtle-pulse 4s ease-in-out infinite;
+}
+
+.header-brand:hover .brand-aquila-img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px #FFD700) drop-shadow(0 0 30px #8B0000) drop-shadow(0 0 40px rgba(139, 0, 0, 0.9));
+}
+
+@keyframes subtle-pulse {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 1; }
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.brand-title {
+    font-size: 18px;
+    font-weight: 900;
+    color: #FFD700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Cinzel Decorative', 'MedievalSharp', cursive;
+}
+
+.brand-subtitle {
+    font-size: 11px;
+    color: #E8DCC4;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Navigation */
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link {
+    background: transparent;
+    border: 1px solid #3a3a3a;
+    color: #E8DCC4;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #FFD700;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+    border-color: #8B0000;
+    color: #FFD700;
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1);
+}
+
+.nav-link.active {
+    border-color: #FFD700;
+    color: #FFD700;
+    background: rgba(139, 0, 0, 0.2);
+}
+
+.nav-link.active::before {
+    transform: scaleX(1);
+}
+
+.nav-icon {
+    font-size: 16px;
+    filter: drop-shadow(0 0 5px currentColor);
+}
+
+.enlist-btn {
+    background: linear-gradient(135deg, #8B0000 0%, #660000 100%);
+    border-color: #FFD700;
+    color: #FFD700;
+}
+
+.enlist-btn:hover {
+    background: linear-gradient(135deg, #660000 0%, #8B0000 100%);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.6);
+    transform: translateY(-2px);
+}
+
+.logout-btn:hover {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+}
+
+.nav-divider {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(180deg, transparent, #8B0000, transparent);
+    margin: 0 8px;
+}
+
+/* User Info */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #8B0000;
+    background: rgba(139, 0, 0, 0.1);
+}
+
+.user-icon {
+    font-size: 18px;
+    filter: drop-shadow(0 0 5px #FFD700);
+}
+
+.user-name {
+    font-size: 13px;
+    color: #FFD700;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: 2px solid #8B0000;
+    color: #FFD700;
+    font-size: 24px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    background: rgba(139, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+}
+
+.hamburger-icon {
+    display: block;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: #0a0a0a;
+    border-top: 1px solid #8B0000;
+    padding: 16px;
+    gap: 8px;
+}
+
+.mobile-nav-link {
+    background: transparent;
+    border: 1px solid #3a3a3a;
+    color: #E8DCC4;
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+.mobile-nav-link:hover {
+    border-color: #8B0000;
+    color: #FFD700;
+    background: rgba(139, 0, 0, 0.1);
+}
+
+.mobile-nav-link.active {
+    border-color: #FFD700;
+    color: #FFD700;
+    background: rgba(139, 0, 0, 0.2);
+}
+
+.mobile-nav-link.enlist-btn {
+    background: linear-gradient(135deg, #8B0000 0%, #660000 100%);
+    border-color: #FFD700;
+    color: #FFD700;
+}
+
+.mobile-nav-link.logout-btn:hover {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+}
+
+.mobile-user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border: 1px solid #8B0000;
+    background: rgba(139, 0, 0, 0.2);
+    margin: 8px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .header-nav {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .mobile-nav {
+        display: flex;
+    }
+
+    .header-container {
+        padding: 12px 16px;
+    }
+
+    .brand-aquila {
+        font-size: 28px;
+    }
+
+    .brand-title {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+    .brand-subtitle {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-text {
+        display: none;
+    }
+
+    .brand-aquila {
+        font-size: 32px;
+    }
+
+    .mobile-nav-link {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+}
