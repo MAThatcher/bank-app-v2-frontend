@@ -1,11 +1,8 @@
 import React from 'react';
-import '../assets/styles/InfoPage.css';
-
 export default function CompliancePage() {
-    return (
-        <div className="info-page">
+  return <div className="info-page">
             <section className="info-hero">
-                <div className="imperial-header">
+                <div className="imperial-header"><p className="eyebrow">ADEPTUS ADMINISTRATUM / IMPERIAL ARCHIVES</p>
                     <h1 className="info-title">INQUISITORIAL COMPLIANCE</h1>
                     <div className="aquila-divider">⛨</div>
                     <p className="info-subtitle">
@@ -16,7 +13,7 @@ export default function CompliancePage() {
 
             <section className="info-content">
                 <div className="content-card">
-                    <h2 className="section-heading">⚖️ COMPLIANCE MANDATE</h2>
+                    <h2 className="section-heading">COMPLIANCE MANDATE</h2>
                     <p className="section-text">
                         The Imperial Bank of Terra operates under the most rigorous regulatory oversight across 
                         the million worlds of the Imperium. By divine decree of the Adeptus Terra and eternal 
@@ -28,7 +25,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🏛️ REGULATORY AUTHORITIES</h2>
+                    <h2 className="section-heading">REGULATORY AUTHORITIES</h2>
                     <p className="section-text">
                         Our operations are supervised by multiple Imperial regulatory bodies:
                     </p>
@@ -48,7 +45,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🔍 ANTI-MONEY LAUNDERING (AML)</h2>
+                    <h2 className="section-heading">ANTI-MONEY LAUNDERING (AML)</h2>
                     <div className="info-subsection">
                         <h3>Our Anti-Laundering Protocols</h3>
                         <p className="section-text">
@@ -85,7 +82,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🛡️ KNOW YOUR CUSTOMER (KYC)</h2>
+                    <h2 className="section-heading">KNOW YOUR CUSTOMER (KYC)</h2>
                     <p className="section-text">
                         Our KYC protocols ensure we know the true identity of all account holders:
                     </p>
@@ -124,7 +121,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🌍 SANCTIONS COMPLIANCE</h2>
+                    <h2 className="section-heading">SANCTIONS COMPLIANCE</h2>
                     <p className="section-text">
                         We strictly enforce all Imperial sanctions and embargoes:
                     </p>
@@ -167,7 +164,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">💳 CITIZEN PROTECTION EDICTS</h2>
+                    <h2 className="section-heading">CITIZEN PROTECTION EDICTS</h2>
                     <p className="section-text">
                         We uphold Imperial citizen protection laws as ordained by the Adeptus Terra:
                     </p>
@@ -184,7 +181,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🔐 DATA PROTECTION & PRIVACY</h2>
+                    <h2 className="section-heading">DATA PROTECTION & PRIVACY</h2>
                     <p className="section-text">
                         We adhere to Imperial data protection regulations:
                     </p>
@@ -216,7 +213,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">📊 REPORTING OBLIGATIONS</h2>
+                    <h2 className="section-heading">REPORTING OBLIGATIONS</h2>
                     <div className="info-subsection">
                         <h3>Mandatory Transmissions to Imperial Authorities</h3>
                         <p className="section-text">
@@ -254,7 +251,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🔧 OPERATIONAL COMPLIANCE</h2>
+                    <h2 className="section-heading">OPERATIONAL COMPLIANCE</h2>
                     <div className="info-subsection">
                         <h3>Internal Control Mechanisms</h3>
                         <p className="section-text">
@@ -291,7 +288,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">⚠️ CONSEQUENCES OF NON-COMPLIANCE</h2>
+                    <h2 className="section-heading">CONSEQUENCES OF NON-COMPLIANCE</h2>
                     <p className="section-text">
                         Failure to comply with regulations may result in:
                     </p>
@@ -325,7 +322,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">📚 COMPLIANCE EDUCATIONAL RESOURCES</h2>
+                    <h2 className="section-heading">COMPLIANCE EDUCATIONAL RESOURCES</h2>
                     <p className="section-text">
                         We provide sacred texts and training materials to enlighten citizens regarding their duties:
                     </p>
@@ -341,7 +338,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🔄 PERPETUAL ADAPTATION & EVOLUTION</h2>
+                    <h2 className="section-heading">PERPETUAL ADAPTATION & EVOLUTION</h2>
                     <p className="section-text">
                         Our compliance protocols evolve continuously to counter emerging threats across the million worlds:
                     </p>
@@ -358,7 +355,7 @@ export default function CompliancePage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">📬 COMPLIANCE INQUIRY CHANNELS</h2>
+                    <h2 className="section-heading">COMPLIANCE INQUIRY CHANNELS</h2>
                     <p className="section-text">
                         To submit compliance inquiries or report heretical activities:
                     </p>
@@ -387,6 +384,5 @@ export default function CompliancePage() {
                     <p className="seal-text">By Authority of the God-Emperor and His Holy Inquisition</p>
                 </div>
             </section>
-        </div>
-    );
+        </div>;
 }

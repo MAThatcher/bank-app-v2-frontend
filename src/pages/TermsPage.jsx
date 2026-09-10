@@ -1,11 +1,8 @@
 import React from 'react';
-import '../assets/styles/InfoPage.css';
-
 export default function TermsPage() {
-    return (
-        <div className="info-page">
+  return <div className="info-page">
             <section className="info-hero">
-                <div className="imperial-header">
+                <div className="imperial-header"><p className="eyebrow">ADEPTUS ADMINISTRATUM / IMPERIAL ARCHIVES</p>
                     <h1 className="info-title">TERMS OF BINDING</h1>
                     <div className="aquila-divider">⛨</div>
                     <p className="info-subtitle">
@@ -16,7 +13,7 @@ export default function TermsPage() {
 
             <section className="info-content">
                 <div className="content-card">
-                    <h2 className="section-heading">📜 IMPERIAL PROCLAMATION</h2>
+                    <h2 className="section-heading">IMPERIAL PROCLAMATION</h2>
                     <p className="section-text">
                         These Terms of Binding constitute an unbreakable oath-covenant between you (the "Oath-Bound Account Holder" 
                         or "Supplicant") and the Imperial Bank of Terra (the "Holy Institution" or "Sacred Vault"), sanctioned by the 
@@ -31,7 +28,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">👤 ELIGIBILITY & ACCOUNT CREATION</h2>
+                    <h2 className="section-heading">ELIGIBILITY & ACCOUNT CREATION</h2>
                     <div className="info-subsection">
                         <h3>Requirements for Service</h3>
                         <ul>
@@ -56,7 +53,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">💰 FINANCIAL SERVICES</h2>
+                    <h2 className="section-heading">FINANCIAL SERVICES</h2>
                     <div className="info-subsection">
                         <h3>Vault Classifications & Sanctioned Services</h3>
                         <ul>
@@ -105,7 +102,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🔒 SECURITY PROTOCOLS & AUTHENTICATION RITES</h2>
+                    <h2 className="section-heading">SECURITY PROTOCOLS & AUTHENTICATION RITES</h2>
                     <p className="section-text">
                         You swear by the Golden Throne to:
                     </p>
@@ -121,7 +118,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">⚠️ FORBIDDEN ACTIVITIES (PUNISHABLE BY DEATH)</h2>
+                    <h2 className="section-heading">FORBIDDEN ACTIVITIES (PUNISHABLE BY DEATH)</h2>
                     <p className="section-text">
                         The following activities constitute high crimes against the Imperium and are absolutely forbidden:
                     </p>
@@ -145,7 +142,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">📊 SACRED INTELLECTUAL PROPERTY</h2>
+                    <h2 className="section-heading">SACRED INTELLECTUAL PROPERTY</h2>
                     <p className="section-text">
                         All content, Imperial aquilas, sacred seals, and data-artifacts contained within our vault-system are 
                         the consecrated property of the Imperial Bank of Terra, licensed under authority of the Adeptus Terra 
@@ -162,7 +159,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">⚖️ LIMITATION OF LIABILITY</h2>
+                    <h2 className="section-heading">LIMITATION OF LIABILITY</h2>
                     <p className="section-text">
                         To the fullest extent permitted by the Lex Imperialis and Adeptus Terra decrees:
                     </p>
@@ -182,7 +179,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🛡️ OATH OF INDEMNIFICATION</h2>
+                    <h2 className="section-heading">OATH OF INDEMNIFICATION</h2>
                     <p className="section-text">
                         You swear upon the Golden Throne to defend, indemnify, and shield from harm the Imperial Bank of Terra, 
                         its ordained officers, sanctioned agents, servitor-workers, and Tech-Priest overseers from all accusations, 
@@ -199,7 +196,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🔄 ACCOUNT TERMINATION</h2>
+                    <h2 className="section-heading">ACCOUNT TERMINATION</h2>
                     <div className="info-subsection">
                         <h3>By You</h3>
                         <p className="section-text">
@@ -234,7 +231,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">📝 AMENDMENTS & MODIFICATIONS</h2>
+                    <h2 className="section-heading">AMENDMENTS & MODIFICATIONS</h2>
                     <p className="section-text">
                         The Administratum reserves absolute authority to modify these Terms at any moment, as dictated 
                         by the will of the High Lords of Terra or necessitated by galactic circumstance. Substantial 
@@ -256,7 +253,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">⚔️ DISPUTE RESOLUTION</h2>
+                    <h2 className="section-heading">DISPUTE RESOLUTION</h2>
                     <div className="info-subsection">
                         <h3>Governing Law</h3>
                         <p className="section-text">
@@ -287,7 +284,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🌐 MISCELLANEOUS PROVISIONS</h2>
+                    <h2 className="section-heading">MISCELLANEOUS PROVISIONS</h2>
                     <ul>
                         <li><strong>Severability:</strong> Should any provision be declared heretical or invalid, all remaining provisions maintain sacred authority</li>
                         <li><strong>Mercy & Forbearance:</strong> Our failure to immediately punish oath-violations does not constitute permanent absolution</li>
@@ -301,7 +298,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">📬 CONTACT THE LEGAL SCRIBES</h2>
+                    <h2 className="section-heading">CONTACT THE LEGAL SCRIBES</h2>
                     <p className="section-text">
                         To submit petitions or inquiries regarding these binding Terms:
                     </p>
@@ -324,6 +321,5 @@ export default function TermsPage() {
                     <p className="seal-text">Sealed with the Aquila • Witnessed by the Golden Throne • Sanctified for All Time</p>
                 </div>
             </section>
-        </div>
-    );
+        </div>;
 }

@@ -1,6 +1,6 @@
 import axiosClient from './axiosClient';
 
-export const getNotificationsApi = () => axiosClient.get('/api/notification');
+export const getNotificationsApi = (params = {}) => axiosClient.get('/api/notification', { params });
 export const getNotificationApi = (notificationId) => axiosClient.get(`/api/notification/${notificationId}`);
 export const dismissNotificationApi = (notificationId) => axiosClient.patch(`/api/notification/${notificationId}`);
 export const createNotificationApi = (notificationData) => axiosClient.post('/api/notification', notificationData);

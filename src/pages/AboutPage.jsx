@@ -1,11 +1,8 @@
 import React from 'react';
-import '../assets/styles/AboutPage.css';
-
 export default function AboutPage() {
-    return (
-        <div className="about-page">
+  return <div className="about-page">
             <section className="about-hero">
-                <div className="imperial-header">
+                <div className="imperial-header"><p className="eyebrow">ADEPTUS ADMINISTRATUM / IMPERIAL ARCHIVES</p>
                     <h1 className="about-title">IMPERIAL CHARTER</h1>
                     <div className="aquila-divider">⛨</div>
                     <p className="about-subtitle">
@@ -16,7 +13,7 @@ export default function AboutPage() {
 
             <section className="about-content">
                 <div className="content-card">
-                    <h2 className="section-heading">⚔️ OUR FOUNDING</h2>
+                    <h2 className="section-heading">OUR FOUNDING</h2>
                     <p className="section-text">
                         Established in the early days of M31, following the Great Crusade, the Imperial 
                         Bank of Terra was sanctioned by the High Lords of Terra to manage the vast 
@@ -27,7 +24,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">📜 OUR MISSION</h2>
+                    <h2 className="section-heading">OUR MISSION</h2>
                     <p className="section-text">
                         To safeguard the wealth of the Imperium's loyal citizens through unwavering 
                         service, impenetrable security, and financial instruments blessed by the 
@@ -41,7 +38,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🛡️ OUR VALUES</h2>
+                    <h2 className="section-heading">OUR VALUES</h2>
                     <ul className="values-list">
                         <li><strong>Loyalty:</strong> To the Emperor and the citizens of the Imperium</li>
                         <li><strong>Security:</strong> Fortress-grade protection for all assets</li>
@@ -52,7 +49,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">⚙️ THE ADMINISTRATUM NETWORK</h2>
+                    <h2 className="section-heading">THE ADMINISTRATUM NETWORK</h2>
                     <p className="section-text">
                         Our network spans the entire Imperium, from the gleaming spires of Holy Terra 
                         to the frontier worlds on the edge of known space. Through a combination of 
@@ -76,7 +73,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🌟 SANCTIONED BY THE HIGH LORDS</h2>
+                    <h2 className="section-heading">SANCTIONED BY THE HIGH LORDS</h2>
                     <p className="section-text">
                         The Imperial Bank of Terra operates under direct sanction from the High Lords 
                         of Terra and the Adeptus Administratum. Our charters are sealed with the 
@@ -91,6 +88,5 @@ export default function AboutPage() {
                     <p className="small-text">M3.025 - Glory to the Emperor</p>
                 </div>
             </section>
-        </div>
-    );
+        </div>;
 }

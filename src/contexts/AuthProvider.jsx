@@ -1,64 +1,61 @@
-import React, { createContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { login as loginService, logout as logoutService } from '../services/authService';
-import { getLocalAccessToken } from '../services/tokenService';
-
-
+import { getLocalAccessToken, clearTokens } from '../services/tokenService';
+import { getUserDetailsApi } from '../api/usersApi';
 export const AuthContext = createContext(null);
-
-
-export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-
-    const bootstrapAuth = useCallback(async () => {
-        const token = getLocalAccessToken();
-        if (!token) {
-            setLoading(false);
-            return;
+export const AuthProvider = ({
+  children
+}) => {
+  const [user, setUser] = useState(null),
+    [loading, setLoading] = useState(true);
+  useEffect(() => {
+    let active = true;
+    const bootstrap = async () => {
+      try {
+        if (getLocalAccessToken()) {
+          const {
+            data
+          } = await getUserDetailsApi();
+          if (active) setUser(data);
         }
-        // TODO: fetch api/users/ to populate user
-        try {
-            // const { data } = await axiosClient.get('/auth/me');
-            // setUser(data.user);
-            setUser({});
-        } catch (err) {
-            console.log(err);
-            setUser(null);
-        } finally {
-            setLoading(false);
-        }
-    }, []);
-
-
-    useEffect(() => {
-        bootstrapAuth();
-    }, [bootstrapAuth]);
-
-
-    const login = async (credentials) => {
-        setLoading(true);
-        try {
-            const { user } = await loginService(credentials);
-            setUser(user);
-            return { ok: true };
-        } catch (err) {
-            return { ok: false, error: err?.response?.data?.message || err.message };
-        } finally {
-            setLoading(false);
-        }
+      } catch {
+        clearTokens();
+        if (active) setUser(null);
+      } finally {
+        if (active) setLoading(false);
+      }
     };
-
-
-    const logout = async () => {
-        await logoutService();
-        setUser(null);
+    bootstrap();
+    return () => {
+      active = false;
     };
-
-
-    return (
-        <AuthContext.Provider value={{ user, loading, login, logout }}>
-            {children}
-        </AuthContext.Provider>
-    );
+  }, []);
+  const login = async credentials => {
+    try {
+      await loginService(credentials);
+      const {
+        data
+      } = await getUserDetailsApi();
+      setUser(data);
+      return {
+        ok: true
+      };
+    } catch (err) {
+      clearTokens();
+      return {
+        ok: false,
+        error: err.response?.data?.error || err.response?.data?.message || err.message
+      };
+    }
+  };
+  const logout = async () => {
+    await logoutService();
+    setUser(null);
+  };
+  return <AuthContext.Provider value={{
+    user,
+    loading,
+    login,
+    logout
+  }}>{children}</AuthContext.Provider>;
 };

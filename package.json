@@ -15,7 +15,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "test:transfers": "jest --config jest.transfers.config.cjs --runInBand",
+    "eject": "react-scripts eject",
+    "test:notifications": "jest --config jest.notifications.config.cjs --runInBand",
+    "test:vault": "jest --config jest.vault.config.cjs --runInBand",
+    "test:archives": "jest --config jest.archives.config.cjs --runInBand"
   },
   "eslintConfig": {
     "extends": [

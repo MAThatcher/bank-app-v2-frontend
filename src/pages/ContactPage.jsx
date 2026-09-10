@@ -1,11 +1,8 @@
 import React from 'react';
-import '../assets/styles/ContactPage.css';
-
 export default function ContactPage() {
-    return (
-        <div className="contact-page">
+  return <div className="contact-page">
             <section className="contact-hero">
-                <div className="imperial-header">
+                <div className="imperial-header"><p className="eyebrow">ADEPTUS ADMINISTRATUM / IMPERIAL ARCHIVES</p>
                     <h1 className="contact-title">SCRIBE CONTACT</h1>
                     <div className="aquila-divider">⛨</div>
                     <p className="contact-subtitle">
@@ -16,7 +13,7 @@ export default function ContactPage() {
 
             <section className="contact-content">
                 <div className="content-card">
-                    <h2 className="section-heading">📡 VOX CHANNELS</h2>
+                    <h2 className="section-heading">VOX CHANNELS</h2>
                     <div className="contact-methods">
                         <div className="contact-method">
                             <h3>Astropathic Communication</h3>
@@ -48,7 +45,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🏛️ ADMINISTRATUM OFFICES</h2>
+                    <h2 className="section-heading">ADMINISTRATUM OFFICES</h2>
                     <div className="office-locations">
                         <div className="office">
                             <h3>Holy Terra - Prime Headquarters</h3>
@@ -74,7 +71,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">📜 DEPARTMENT CONTACTS</h2>
+                    <h2 className="section-heading">DEPARTMENT CONTACTS</h2>
                     <div className="departments">
                         <div className="department">
                             <h3>Account Services</h3>
@@ -103,7 +100,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">⏰ RESPONSE TIMES</h2>
+                    <h2 className="section-heading">RESPONSE TIMES</h2>
                     <div className="response-info">
                         <p className="section-text">
                             Our Scribes are dedicated to serving the Emperor's faithful with efficiency 
@@ -124,6 +121,5 @@ export default function ContactPage() {
                     <p className="small-text">M3.025 - Always in Service</p>
                 </div>
             </section>
-        </div>
-    );
+        </div>;
 }

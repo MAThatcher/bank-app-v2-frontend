@@ -1,20 +1,10 @@
-// NOTE: for banking apps prefer httpOnly secure cookies for refresh tokens.
-// This example uses localStorage for simplicity. Swap to cookies on production.
-
+// Refresh tokens are now stored in HTTP-only cookies for security.
+// Access tokens can remain in memory or localStorage.
 
 const ACCESS_KEY = 'app_access_token';
-const REFRESH_KEY = 'app_refresh_token';
-
-
 export const getLocalAccessToken = () => localStorage.getItem(ACCESS_KEY);
-export const setLocalAccessToken = (token) => token ? localStorage.setItem(ACCESS_KEY, token) : localStorage.removeItem(ACCESS_KEY);
-
-
-export const getLocalRefreshToken = () => localStorage.getItem(REFRESH_KEY);
-export const setLocalRefreshToken = (token) => token ? localStorage.setItem(REFRESH_KEY, token) : localStorage.removeItem(REFRESH_KEY);
-
-
+export const setLocalAccessToken = token => token ? localStorage.setItem(ACCESS_KEY, token) : localStorage.removeItem(ACCESS_KEY);
 export const clearTokens = () => {
-    localStorage.removeItem(ACCESS_KEY);
-    localStorage.removeItem(REFRESH_KEY);
+  localStorage.removeItem(ACCESS_KEY);
+  // Refresh token is cleared by backend via cookie deletion
 };

@@ -1,11 +1,8 @@
 import React from 'react';
-import '../assets/styles/InfoPage.css';
-
 export default function PrivacyPage() {
-    return (
-        <div className="info-page">
+  return <div className="info-page">
             <section className="info-hero">
-                <div className="imperial-header">
+                <div className="imperial-header"><p className="eyebrow">ADEPTUS ADMINISTRATUM / IMPERIAL ARCHIVES</p>
                     <h1 className="info-title">PRIVACY SANCTUM</h1>
                     <div className="aquila-divider">⛨</div>
                     <p className="info-subtitle">
@@ -16,7 +13,7 @@ export default function PrivacyPage() {
 
             <section className="info-content">
                 <div className="content-card">
-                    <h2 className="section-heading">📜 IMPERIAL PRIVACY DECREE</h2>
+                    <h2 className="section-heading">IMPERIAL PRIVACY DECREE</h2>
                     <p className="section-text">
                         By order of the Adeptus Terra and in accordance with the sacred laws of the God-Emperor, 
                         the Imperial Bank of Terra upholds the sanctity of your personal data-scrawls. This Privacy 
@@ -26,7 +23,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🔍 INFORMATION WE COLLECT</h2>
+                    <h2 className="section-heading">INFORMATION WE COLLECT</h2>
                     <div className="info-subsection">
                         <h3>Personal Identification Data-Scrolls</h3>
                         <ul>
@@ -59,7 +56,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🛡️ HOW WE PROTECT YOUR DATA</h2>
+                    <h2 className="section-heading">HOW WE PROTECT YOUR DATA</h2>
                     <p className="section-text">
                         Your sacred information dwells within armored data-vaults deep beneath the 
                         Martian forges, blessed by Tech-Priests and protected by the Omnissiah's will. We employ:
@@ -74,7 +71,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">📊 HOW WE USE YOUR INFORMATION</h2>
+                    <h2 className="section-heading">HOW WE USE YOUR INFORMATION</h2>
                     <p className="section-text">
                         Your data-scrolls are processed only for purposes sanctioned by the High Lords of Terra:
                     </p>
@@ -89,7 +86,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🤝 INFORMATION SHARING</h2>
+                    <h2 className="section-heading">INFORMATION SHARING</h2>
                     <p className="section-text">
                         Your data-scrolls shall never be sold to rogue traders or unsanctioned entities. 
                         Information may be shared only with:
@@ -104,7 +101,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">⚖️ YOUR IMPERIAL RIGHTS</h2>
+                    <h2 className="section-heading">YOUR IMPERIAL RIGHTS</h2>
                     <p className="section-text">
                         As a faithful servant of the God-Emperor and registered citizen of the Imperium, 
                         you possess certain inalienable rights:
@@ -120,7 +117,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🍪 MACHINE SPIRIT TRACKING PROTOCOLS</h2>
+                    <h2 className="section-heading">MACHINE SPIRIT TRACKING PROTOCOLS</h2>
                     <p className="section-text">
                         We deploy data-memes and tracking runes to harmonize with your cogitator's machine spirit:
                     </p>
@@ -137,7 +134,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">👶 PROTECTION OF IMPERIAL YOUTH</h2>
+                    <h2 className="section-heading">PROTECTION OF IMPERIAL YOUTH</h2>
                     <p className="section-text">
                         Our banking services are restricted to citizens who have reached the Age of Majority 
                         (18 standard Terran years or equivalent by local planetary cycle). We do not knowingly 
@@ -148,7 +145,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🔄 AMENDMENTS TO THIS DECREE</h2>
+                    <h2 className="section-heading">AMENDMENTS TO THIS DECREE</h2>
                     <p className="section-text">
                         This Privacy Sanctum may be revised to reflect amendments in the Lex Imperialis, 
                         revelations granted by the Omnissiah, or operational necessities of the Imperium. 
@@ -162,7 +159,7 @@ export default function PrivacyPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">📬 CONTACT THE DATA SCRIBES</h2>
+                    <h2 className="section-heading">CONTACT THE DATA SCRIBES</h2>
                     <p className="section-text">
                         To submit inquiries regarding your data-scrolls or this Privacy Sanctum, 
                         contact our ordained Data Protection Adepts:
@@ -181,6 +178,5 @@ export default function PrivacyPage() {
                     <p className="seal-text">"Knowledge is Power, Guard it Well"</p>
                 </div>
             </section>
-        </div>
-    );
+        </div>;
 }

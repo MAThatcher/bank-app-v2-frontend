@@ -1,11 +1,8 @@
 import React from 'react';
-import '../assets/styles/SecurityPage.css';
-
 export default function SecurityPage() {
-    return (
-        <div className="security-page">
+  return <div className="security-page">
             <section className="security-hero">
-                <div className="imperial-header">
+                <div className="imperial-header"><p className="eyebrow">ADEPTUS ADMINISTRATUM / IMPERIAL ARCHIVES</p>
                     <h1 className="security-title">FORTRESS PROTOCOLS</h1>
                     <div className="aquila-divider">⛨</div>
                     <p className="security-subtitle">
@@ -16,7 +13,7 @@ export default function SecurityPage() {
 
             <section className="security-content">
                 <div className="content-card">
-                    <h2 className="section-heading">🛡️ DEFENSE PROTOCOLS</h2>
+                    <h2 className="section-heading">DEFENSE PROTOCOLS</h2>
                     <p className="section-text">
                         The Imperial Bank of Terra employs the most advanced security measures known 
                         to the Imperium. Every aspect of our infrastructure is fortified to protect 
@@ -62,7 +59,7 @@ export default function SecurityPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">⚖️ COMPLIANCE STANDARDS</h2>
+                    <h2 className="section-heading">COMPLIANCE STANDARDS</h2>
                     <p className="section-text">
                         The Imperial Bank of Terra operates in full compliance with all Administratum 
                         decrees, Inquisitorial edicts, and High Lord mandates. Our commitment to 
@@ -79,7 +76,7 @@ export default function SecurityPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🔍 FRAUD PREVENTION</h2>
+                    <h2 className="section-heading">FRAUD PREVENTION</h2>
                     <p className="section-text">
                         We employ sophisticated detection systems to identify and prevent fraudulent 
                         activity before it can threaten your assets.
@@ -112,7 +109,7 @@ export default function SecurityPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">📋 REPORTING SECURITY CONCERNS</h2>
+                    <h2 className="section-heading">REPORTING SECURITY CONCERNS</h2>
                     <p className="section-text">
                         If you suspect unauthorized access, fraudulent activity, or security breaches, 
                         report immediately through these sanctioned channels:
@@ -139,7 +136,7 @@ export default function SecurityPage() {
                 </div>
 
                 <div className="content-card">
-                    <h2 className="section-heading">🛠️ YOUR SECURITY RESPONSIBILITIES</h2>
+                    <h2 className="section-heading">YOUR SECURITY RESPONSIBILITIES</h2>
                     <p className="section-text">
                         While we provide fortress-grade protection, citizens must also follow sacred 
                         security protocols:
@@ -161,6 +158,5 @@ export default function SecurityPage() {
                     <p className="small-text">M3.025 - The Emperor Protects the Vigilant</p>
                 </div>
             </section>
-        </div>
-    );
+        </div>;
 }
