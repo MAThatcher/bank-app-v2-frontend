@@ -4,8 +4,11 @@ import { getAccountByIdApi } from '../../api/accountsApi';
 import { getTransactionsApi, createTransactionApi } from '../../api/transactionsApi';
 import { PageHeading, Loading, Notice, Empty, money } from '../../components/common/Imperial';
 import useAuth from '../../hooks/useAuth';
+import {getLedgerLabelsApi} from '../../api/ledgerLabelsApi';
 export default function AccountDetailPage() {
   const { user } = useAuth();
+  const [categories,setCategories]=useState([]);
+  useEffect(()=>{let active=true;getLedgerLabelsApi().then(data=>{if(active)setCategories(data.categories.filter(row=>!row.archived));}).catch(()=>{});return()=>{active=false;};},[]);
   const {
     accountId
   } = useParams();
@@ -63,7 +66,8 @@ export default function AccountDetailPage() {
         accountId: Number(accountId),
         transactionAmount: amount,
         description: form.description.trim(),
-        category: form.category.trim() || 'General'
+        category: form.category.trim() || 'General',
+        ...(categories.some(row=>row.name===form.category.trim())?{categoryId:categories.find(row=>row.name===form.category.trim()).id}:{})
       });
       setForm({
         transactionAmount: '',
@@ -87,16 +91,16 @@ export default function AccountDetailPage() {
       {open && <section id="transaction-form" className="transaction-compose"><div><p className="eyebrow">NEW LEDGER ENTRY</p><h2>Record a transaction</h2><p className="muted">Positive amounts deposit throne gelt. Negative amounts withdraw it.</p></div><form onSubmit={submit}><div className="form-grid"><label>Amount (₮)<input ref={amountRef} type="number" step="0.01" required value={form.transactionAmount} onChange={e => setForm({
                 ...form,
                 transactionAmount: e.target.value
-              })} placeholder="0.00" /></label><label>Category <span className="optional">optional</span><input value={form.category} maxLength={1020} onChange={e => setForm({
+              })} placeholder="0.00" /></label><label>Category <span className="optional">optional</span><input list="personal-categories" value={form.category} maxLength={1020} onChange={e => setForm({
                 ...form,
                 category: e.target.value
-              })} placeholder="Tithe, trade, wages…" /></label></div><label>Description<textarea required maxLength={1020} rows="3" value={form.description} onChange={e => setForm({
+              })} placeholder="Tithe, trade, wages…" /><datalist id="personal-categories">{categories.map(row=><option key={row.id} value={row.name}/>)}</datalist></label></div><label>Description<textarea required maxLength={1020} rows="3" value={form.description} onChange={e => setForm({
               ...form,
               description: e.target.value
             })} placeholder="Enter the purpose of this transaction" /></label>{formError && <Notice error>{formError}</Notice>}<div className="button-row"><button type="submit" className="btn btn-primary" disabled={busy}>{busy ? 'Recording…' : 'Commit to ledger'} →</button><button type="button" className="btn btn-quiet" onClick={close} disabled={busy}>Cancel</button></div></form></section>}
-      <section className="ledger"><div className="section-heading-row"><div><p className="eyebrow">BOOK OF JUDGMENT</p><h2>Transaction ledger</h2></div><span className="count-label">NEWEST FIRST</span></div>{transactions.length ? <div className="ledger-rows">{transactions.map(t => <details className="ledger-row" key={t.id}><summary><span className={'transaction-direction ' + (Number(t.amount) < 0 ? 'debit' : '')} aria-hidden="true">{Number(t.amount) < 0 ? '↗' : '↙'}</span><span className="transaction-title"><strong>{t.description}</strong><span>{new Date(t.create_date).toLocaleDateString('en-US', {
+      <section className="ledger"><div className="section-heading-row"><div><p className="eyebrow">BOOK OF JUDGMENT</p><h2>Transaction ledger</h2><Link className="text-link" to={`/archives?accountId=${accountId}`}>Organize categories & tags →</Link></div><span className="count-label">NEWEST FIRST</span></div>{transactions.length ? <div className="ledger-rows">{transactions.map(t => <details className="ledger-row" key={t.id}><summary><span className={'transaction-direction ' + (Number(t.amount) < 0 ? 'debit' : '')} aria-hidden="true">{Number(t.amount) < 0 ? '↗' : '↙'}</span><span className="transaction-title"><strong>{t.description}</strong><span>{new Date(t.create_date).toLocaleDateString('en-US', {
                     month: 'short',
                     day: 'numeric',
                     year: 'numeric'
-                  })} · {t.transfer_id ? (Number(t.amount) < 0 ? 'Transfer out' : 'Transfer in') : (Number(t.amount) < 0 ? 'Withdrawal' : 'Deposit')}</span></span><span className={'transaction-amount ' + (Number(t.amount) < 0 ? 'negative' : 'positive')}>{Number(t.amount) > 0 ? '+' : ''}{money(t.amount)} ₮</span><span className="expand-mark" aria-hidden="true">+</span></summary><div className="transaction-expanded"><div><span className="eyebrow">ENTRY REFERENCE</span><p>#{t.id}</p></div><div><span className="eyebrow">RECORDED</span><p>{new Date(t.create_date).toLocaleString()}</p></div>{t.category && <div><span className="eyebrow">CATEGORY</span><p>{t.category}</p></div>}<div><span className="eyebrow">DESCRIPTION</span><p>{t.description}</p></div>{t.transfer_id && <div className="transfer-reference"><span className="eyebrow">LINKED TRANSFER REFERENCE</span><p>{t.transfer_id}</p></div>}</div></details>)}</div> : <Empty title="No entries in this ledger."><p>Record a deposit or withdrawal to begin.</p></Empty>}</section></>}</div>;
+                  })} · {t.transfer_id ? (Number(t.amount) < 0 ? 'Transfer out' : 'Transfer in') : (Number(t.amount) < 0 ? 'Withdrawal' : 'Deposit')}</span></span><span className={'transaction-amount ' + (Number(t.amount) < 0 ? 'negative' : 'positive')}>{Number(t.amount) > 0 ? '+' : ''}{money(t.amount)} ₮</span><span className="expand-mark" aria-hidden="true">+</span></summary><div className="transaction-expanded"><div className="ledger-tags">{t.tags?.map(tag=><span className="ledger-tag" key={tag.id} style={{borderColor:tag.color}}><span style={{backgroundColor:tag.color}}/>{tag.name}</span>)}</div><div><span className="eyebrow">ENTRY REFERENCE</span><p>#{t.id}</p></div><div><span className="eyebrow">RECORDED</span><p>{new Date(t.create_date).toLocaleString()}</p></div>{t.category && <div><span className="eyebrow">CATEGORY</span><p>{t.category}</p></div>}<div><span className="eyebrow">DESCRIPTION</span><p>{t.description}</p></div>{t.transfer_id && <div className="transfer-reference"><span className="eyebrow">LINKED TRANSFER REFERENCE</span><p>{t.transfer_id}</p></div>}<div><Link className="btn btn-outline" to={`/disputes?transaction=${t.id}`}>Dispute this transaction</Link></div></div></details>)}</div> : <Empty title="No entries in this ledger."><p>Record a deposit or withdrawal to begin.</p></Empty>}</section></>}</div>;
 }

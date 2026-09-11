@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header';
+import ImpersonationShell from './components/layout/ImpersonationShell';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/index';
 import AboutPage from './pages/AboutPage';
@@ -22,6 +23,11 @@ import TransferPage from './pages/account/TransferPage';
 import VaultSettingsPage from './pages/account/VaultSettingsPage';
 import NotificationsPage from './pages/NotificationsPage';
 import LedgerArchivesPage from './pages/LedgerArchivesPage';
+import SecuritySanctumPage from './pages/SecuritySanctumPage';
+import PreferencesPage from './pages/PreferencesPage';
+import AdminPage from './pages/AdminPage';
+import LedgerLabelsPage from './pages/LedgerLabelsPage';
+import DisputesPage, { DisputeDetailPage } from './pages/DisputesPage';
 import NotFoundPage from './pages/NotFoundPage';
 import useAuth from './hooks/useAuth';
 import { Loading } from './components/common/Imperial';
@@ -45,8 +51,9 @@ function ProtectedRoute({
   if (!user) return <Navigate to="/login" replace />;
   return children;
 }
+function AdminRoute({ children }) { const { user } = useAuth(); return user?.super_user ? children : <AdminPage />; }
 export default function Router() {
-  return <BrowserRouter><ScrollToTop />
+  return <BrowserRouter><ScrollToTop /><ImpersonationShell>
             <div className="app-frame"><a className="skip-link" href="#main-content">Skip to content</a>
                 <Header />
                 <main id="main-content" className="app-main" tabIndex={-1}>
@@ -73,6 +80,13 @@ export default function Router() {
                         <Route path="/transfer" element={<ProtectedRoute><TransferPage /></ProtectedRoute>} />
                         <Route path="/notifications" element={<ProtectedRoute><NotificationsPage /></ProtectedRoute>} />
                         <Route path="/archives" element={<ProtectedRoute><LedgerArchivesPage /></ProtectedRoute>} />
+                        <Route path="/settings/security" element={<ProtectedRoute><SecuritySanctumPage /></ProtectedRoute>} />
+                        <Route path="/settings/preferences" element={<ProtectedRoute><PreferencesPage /></ProtectedRoute>} />
+                        <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
+                        <Route path="/labels" element={<ProtectedRoute><LedgerLabelsPage /></ProtectedRoute>} />
+                        <Route path="/admin/disputes/:disputeId" element={<ProtectedRoute><AdminRoute><DisputeDetailPage adminView /></AdminRoute></ProtectedRoute>} />
+                        <Route path="/disputes" element={<ProtectedRoute><DisputesPage /></ProtectedRoute>} />
+                        <Route path="/disputes/:disputeId" element={<ProtectedRoute><DisputeDetailPage /></ProtectedRoute>} />
                         <Route path="/account/:accountId/settings" element={<ProtectedRoute><VaultSettingsPage /></ProtectedRoute>} />
                         <Route path="/account/:accountId" element={<ProtectedRoute>
                                     <AccountDetailPage />
@@ -82,5 +96,5 @@ export default function Router() {
                 </main>
                 <Footer />
             </div>
-        </BrowserRouter>;
+        </ImpersonationShell></BrowserRouter>;
 }

@@ -1,13 +1,20 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 import { login as loginService, logout as logoutService } from '../services/authService';
 import { getLocalAccessToken, clearTokens } from '../services/tokenService';
 import { getUserDetailsApi } from '../api/usersApi';
+import axiosClient from '../api/axiosClient';
+import { getImpersonation, clearImpersonation } from '../services/impersonationService';
 export const AuthContext = createContext(null);
 export const AuthProvider = ({
   children
 }) => {
   const [user, setUser] = useState(null),
     [loading, setLoading] = useState(true);
+  const forgetSession = useCallback(() => { clearTokens(); clearImpersonation(); delete axiosClient.defaults.headers.common.Authorization; setUser(null); }, []);
+  useEffect(() => {
+    window.addEventListener('session-ended', forgetSession);
+    return () => window.removeEventListener('session-ended', forgetSession);
+  }, [forgetSession]);
   useEffect(() => {
     let active = true;
     const bootstrap = async () => {
@@ -18,8 +25,8 @@ export const AuthProvider = ({
           } = await getUserDetailsApi();
           if (active) setUser(data);
         }
-      } catch {
-        clearTokens();
+      } catch (error) {
+        if (!getImpersonation() || error.response?.status === 401) clearTokens();
         if (active) setUser(null);
       } finally {
         if (active) setLoading(false);
@@ -56,6 +63,7 @@ export const AuthProvider = ({
     user,
     loading,
     login,
-    logout
+    logout,
+    forgetSession
   }}>{children}</AuthContext.Provider>;
 };

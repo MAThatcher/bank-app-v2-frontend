@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, useLocation } from 'react-router-dom';
 import AuthLayout from '../../components/common/AuthLayout';
 import { Notice, Loading } from '../../components/common/Imperial';
 import useAuth from '../../hooks/useAuth';
@@ -7,6 +7,7 @@ import { registerApi, verifyEmailApi } from '../../api/usersApi';
 import { forgotPasswordApi, resetPasswordApi } from '../../api/authApi';
 const errorText = (err, fallback) => err.response?.data?.error || err.response?.data?.message || fallback;
 export function Login() {
+  const location = useLocation();
   const {
       login
     } = useAuth(),
@@ -26,7 +27,7 @@ export function Login() {
     if (result.ok) navigate('/dashboard');else setError(result.error || 'Access denied. Check your credentials.');
     setBusy(false);
   };
-  return <AuthLayout eyebrow="IDENTITY AUTHORIZATION / 01" title="Enter the vault." description="Present your credentials to the Administratum."><form onSubmit={submit}><label>Vox-mail address<input type="email" autoComplete="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="citizen@imperium.terra" /></label><label>Security cipher<input type="password" autoComplete="current-password" required value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter your password" /></label><div className="form-link-row"><Link to="/forgot-password">Forgot your cipher?</Link></div>{error && <Notice error>{error}</Notice>}<button className="btn btn-primary full-width" disabled={busy}>{busy ? 'Authorizing…' : 'Authorize access'} →</button></form><p className="auth-switch">Not yet enlisted? <Link to="/register">Register with the Imperium →</Link></p></AuthLayout>;
+  return <AuthLayout eyebrow="IDENTITY AUTHORIZATION / 01" title="Enter the vault." description="Present your credentials to the Administratum.">{location.state?.securityMessage && <Notice>{location.state.securityMessage}</Notice>}<form onSubmit={submit}><label>Vox-mail address<input type="email" autoComplete="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="citizen@imperium.terra" /></label><label>Security cipher<input type="password" autoComplete="current-password" required value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter your password" /></label><div className="form-link-row"><Link to="/forgot-password">Forgot your cipher?</Link></div>{error && <Notice error>{error}</Notice>}<button className="btn btn-primary full-width" disabled={busy}>{busy ? 'Authorizing…' : 'Authorize access'} →</button></form><p className="auth-switch">Not yet enlisted? <Link to="/register">Register with the Imperium →</Link></p></AuthLayout>;
 }
 export function Register() {
   const [form, setForm] = useState({

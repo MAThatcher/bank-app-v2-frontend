@@ -1,0 +1,1 @@
+module.exports = { ...require('./jest.transfers.config.cjs'), testMatch: ['transfers', 'notifications', 'vault', 'archives', 'security', 'preferences', 'admin', 'labels'].map(name => `<rootDir>/test/${name}/**/*.test.js`) };
