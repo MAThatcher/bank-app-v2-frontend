@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getNotificationsApi, dismissNotificationApi, dismissAllNotificationsApi } from '../api/notificationsApi';
 import { useNotifications } from '../contexts/NotificationsProvider';
 import { PageHeading, Notice, Loading, Empty } from '../components/common/Imperial';
 const PAGE_SIZE = 30;
-const labels = { transfer: 'Transfer confirmed', membership: 'Vault access', general: 'Imperial dispatch' };
+const labels = { transfer: 'Transfer confirmed', membership: 'Vault access', security: 'Security alert', dispute: 'Dispute update', general: 'Imperial dispatch' };
 export default function NotificationsPage() {
   const { count, refresh } = useNotifications();
   const [items, setItems] = useState([]);
@@ -45,13 +46,13 @@ export default function NotificationsPage() {
     finally { setBusy(false); }
   }
   return <div className="workspace inbox-workspace">
-    <PageHeading eyebrow="ASTROPATHIC COMMUNICATIONS / SECURE CHANNEL" title="Your transmissions." action={<span className="inbox-total">{count == null ? 'INBOX' : `${count} UNREAD`}</span>}>Transfer confirmations and vault access dispatches from the Administratum.</PageHeading>
-    <div className="inbox-toolbar">
+    <PageHeading eyebrow="ASTROPATHIC COMMUNICATIONS / SECURE CHANNEL" title="Your transmissions." action={<span className="inbox-total">{count == null ? 'INBOX' : `${count} UNREAD`}</span>}>Your selected transfer, vault access, security, and dispute dispatches.</PageHeading>
+    <Link className="btn btn-outline" to="/settings/preferences">Notification preferences</Link><div className="inbox-toolbar">
       <div className="inbox-tabs" role="group" aria-label="Notification status">
         <button className="btn btn-outline" aria-pressed={!unread} disabled={busy || loading} onClick={() => setUnread(false)}>All transmissions</button>
         <button className="btn btn-outline" aria-pressed={unread} disabled={busy || loading} onClick={() => setUnread(true)}>Unread</button>
       </div>
-      <label>Dispatch type<select value={type} disabled={busy || loading} onChange={e => setType(e.target.value)}><option value="">All types</option><option value="transfer">Transfers</option><option value="membership">Vault access</option><option value="general">General</option></select></label>
+      <label>Dispatch type<select value={type} disabled={busy || loading} onChange={e => setType(e.target.value)}><option value="">All types</option><option value="transfer">Transfers</option><option value="membership">Vault access</option><option value="security">Security</option><option value="dispute">Disputes</option><option value="general">General</option></select></label>
       <div className="button-row"><button className="btn btn-quiet" disabled={busy || loading} onClick={() => { load(); refresh(); }}>Refresh</button><button className="btn btn-outline" disabled={busy || loading || !(count > 0 || items.some(item => !item.dismissed))} onClick={() => dismiss()}>Dismiss all unread</button></div>
     </div>
     <p className="fine-print">Dismissed transmissions remain in your archives. Dismiss all applies to every unread transmission, including those outside the current filter.</p>

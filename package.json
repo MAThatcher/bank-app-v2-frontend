@@ -19,7 +19,10 @@
     "eject": "react-scripts eject",
     "test:notifications": "jest --config jest.notifications.config.cjs --runInBand",
     "test:vault": "jest --config jest.vault.config.cjs --runInBand",
-    "test:archives": "jest --config jest.archives.config.cjs --runInBand"
+    "test:archives": "jest --config jest.archives.config.cjs --runInBand",
+    "test:security": "jest --config jest.security.config.cjs --runInBand",
+    "test:preferences": "jest --config jest.preferences.config.cjs --runInBand",
+    "test:features": "jest --config jest.features.config.cjs --runInBand"
   },
   "eslintConfig": {
     "extends": [

@@ -25,7 +25,8 @@ export default function Header() {
  <nav id="main-navigation" className={open ? 'main-nav is-open' : 'main-nav'} aria-label="Main navigation" onClick={() => setOpen(false)}>
  {user ? <><NavLink to="/dashboard">Vault command</NavLink><NavLink to="/transfer">Transfers</NavLink></> : <><NavLink to="/" end>Sanctum</NavLink><NavLink to="/about">Imperial charter</NavLink></>}
  {user && <NavLink to="/notifications" aria-label={count == null ? 'Notifications' : `Notifications, ${count} unread`}>Notifications{count > 0 && <span className="notification-badge" aria-hidden="true">{count > 99 ? '99+' : count}</span>}</NavLink>}
- {user ? <NavLink to="/archives">Ledger archives</NavLink> : <NavLink to="/help">Help</NavLink>}<NavLink to="/security">Security</NavLink>
+ {user?.super_user && <NavLink to="/admin">Admin</NavLink>}
+ {user ? <NavLink to="/archives">Ledger archives</NavLink> : <NavLink to="/help">Help</NavLink>}<NavLink to={user ? "/settings/security" : "/security"}>Security</NavLink>
  {user ? <button className="btn btn-outline" onClick={signOut} disabled={busy}>{busy ? 'Signing out…' : 'Sign out'} ↗</button> : <Link className="btn btn-primary" to="/login">Access your vault ↗</Link>}
  </nav></header></>;
 }
